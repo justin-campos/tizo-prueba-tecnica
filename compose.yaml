@@ -16,6 +16,7 @@ services:
     environment:
       - MSSQL_SA_PASSWORD=Justin123%
       - ACCEPT_EULA=Y
+    hostname: sql1
 
 volumes:
   test_vol:

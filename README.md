@@ -51,6 +51,11 @@ Esta URL te llevará a la interfaz de Swagger, donde encontrarás una descripci�
 
 ## Configuración del Proyecto
 
+### Dependencias dockers
+`docker pull mcr.microsoft.com/mssql/server:2022-latest`
+
+`docker pull openjdk:17-alpine`
+
 ### Docker Compose
 
 El proyecto utiliza Docker Compose para gestionar los contenedores. Asegúrate de tener Docker instalado y luego sigue estos pasos:
@@ -58,7 +63,7 @@ El proyecto utiliza Docker Compose para gestionar los contenedores. Asegúrate d
 1. Clona el repositorio:
 
     ```bash
-    git clone <github.com/justin-campos>
+    git clone <https://github.com/justin-campos/tizo-prueba-tecnica.git>
     ```
 
 2. Levanta los contenedores:
@@ -71,7 +76,10 @@ El proyecto utiliza Docker Compose para gestionar los contenedores. Asegúrate d
 
 ### Base de Datos
 
-El contenedor de la base de datos SQL Server se configura con un volumen `test_vol` para persistir los datos. La estructura de la base de datos se crea automáticamente al iniciar la aplicación Spring Boot.
+Se debe de inicializar la base de datos con el archivo [script.txt](script.txt)
+
+El contenedor de la base de datos SQL Server se configura con un volumen `test_vol` para persistir los datos.
+
 
 
 

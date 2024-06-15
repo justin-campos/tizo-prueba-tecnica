@@ -43,7 +43,7 @@ Se utiliza ControllerAdvice para manejar las excepciones de manera centralizada 
 **URL de la Documentación Swagger:**
 
 ```bash
-http://localhost:8080/swagger-ui.html
+http://localhost:8081/swagger-ui.html
 ```
 
 Esta URL te llevará a la interfaz de Swagger, donde encontrarás una descripción detallada de cada endpoint, incluyendo sus métodos, parámetros y códigos de respuesta. También podrás probar los endpoints directamente desde la interfaz.
@@ -77,6 +77,10 @@ El proyecto utiliza Docker Compose para gestionar los contenedores. Asegúrate d
 ### Base de Datos
 
 Se debe de inicializar la base de datos con el archivo [script.txt](script.txt)
+
+* port: 1434
+* user: sa
+* password: Justin123%
 
 El contenedor de la base de datos SQL Server se configura con un volumen `test_vol` para persistir los datos.
 

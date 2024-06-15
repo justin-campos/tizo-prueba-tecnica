@@ -1,6 +1,9 @@
 CREATE DATABASE ReservationMenu;
 go
 
+use ReservationMenu
+
+go
 -- Creación de la tabla Menu
 CREATE TABLE Menu (
     id_menu INT PRIMARY KEY,

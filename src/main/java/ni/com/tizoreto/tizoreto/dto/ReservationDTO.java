@@ -1,5 +1,6 @@
 package ni.com.tizoreto.tizoreto.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
+@Schema(description = "Model-level description here")
 public class ReservationDTO {
     @Column(name = "id_reserve")
     private Integer idReserve;

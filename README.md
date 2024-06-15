@@ -81,5 +81,19 @@ Se debe de inicializar la base de datos con el archivo [script.txt](script.txt)
 El contenedor de la base de datos SQL Server se configura con un volumen `test_vol` para persistir los datos.
 
 
+### Notas
+
+1. [x] Se subio la carpeta build del proyecto para funcionalidades del docker compose
+
+### Diagramas de secuencia
+
+crear reservacion
+
+![img.png](documentation/Diagram/img.png)
+
+Eliminar reservacion
+
+![img.png](documentation/Diagram/diagramdeletereservation.png)
+
 
 

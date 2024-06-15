@@ -1,0 +1,82 @@
+-- Creación de la tabla Menu
+CREATE TABLE Menu (
+    id_menu INT PRIMARY KEY,
+    name NVARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    state NVARCHAR(50) NOT NULL
+);
+
+-- Creación de la tabla Reserve
+CREATE TABLE Reserve (
+    id_reserve INT IDENTITY(1,1) PRIMARY KEY,
+    customer_name NVARCHAR(100) NOT NULL,
+    customer_number NVARCHAR(15) NOT NULL,
+    date_reserve DATETIME NOT NULL,
+    state NVARCHAR(50) NOT NULL,
+    id_menu INT UNIQUE,  -- Relación uno a uno con Menu
+    FOREIGN KEY (id_menu) REFERENCES Menu(id_menu)
+);
+
+-- Creación de la tabla Dinner
+CREATE TABLE Dinner (
+    id_dinner INT PRIMARY KEY,
+    name NVARCHAR(100) NOT NULL,
+    description NVARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+
+-- Creación de la tabla MenuDinner para las relaciones uno a muchos (1:n) y muchos a uno (n:1)
+CREATE TABLE MenuDinner (
+    id_menu INT NOT NULL,
+    id_dinner INT NOT NULL,
+    PRIMARY KEY (id_menu, id_dinner),
+    FOREIGN KEY (id_menu) REFERENCES Menu(id_menu),  -- Relación uno a muchos (1:n) con Menu
+    FOREIGN KEY (id_dinner) REFERENCES Dinner(id_dinner)  -- Relación muchos a uno (n:1) con Dinner
+);
+
+-- QUERY POBLADORA
+
+-- Poblar la tabla Menu
+INSERT INTO Menu (id_menu, name, price, state) VALUES
+(1, 'Plato 1', 10.50, 'Activo'),
+(2, 'Plato 2', 15.75, 'Activo'),
+(3, 'Plato 3', 12.00, 'Inactivo'),
+(4, 'Plato 4', 8.25, 'Activo'),
+(5, 'Plato 5', 20.00, 'Inactivo'),
+(6, 'Plato 6', 18.50, 'Activo'),
+(7, 'Plato 7', 11.75, 'Activo'),
+(8, 'Plato 8', 9.00, 'Inactivo'),
+(9, 'Plato 9', 14.50, 'Activo'),
+(10, 'Plato 10', 16.75, 'Inactivo');
+
+-- Poblar la tabla Dinner
+INSERT INTO Dinner (id_dinner, name, description, price) VALUES
+(1, 'Cena 1', 'Descripción Cena 1', 25.00),
+(2, 'Cena 2', 'Descripción Cena 2', 30.50),
+(3, 'Cena 3', 'Descripción Cena 3', 28.75),
+(4, 'Cena 4', 'Descripción Cena 4', 22.25),
+(5, 'Cena 5', 'Descripción Cena 5', 35.00),
+(6, 'Cena 6', 'Descripción Cena 6', 32.50),
+(7, 'Cena 7', 'Descripción Cena 7', 27.75),
+(8, 'Cena 8', 'Descripción Cena 8', 24.00),
+(9, 'Cena 9', 'Descripción Cena 9', 31.50),
+(10, 'Cena 10', 'Descripción Cena 10', 33.75);
+
+-- Poblar la tabla MenuDinner
+INSERT INTO MenuDinner (id_menu, id_dinner) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
+
+INSERT INTO Reserve (customer_name, customer_number, date_reserve, state, id_menu)
+VALUES
+('Cliente 1', '123456789', '2024-07-01', 'Activo', 1),
+('Cliente 2', '987654321', '2024-07-02', 'Inactivo', 2),
+('Cliente 3', '555555555', '2024-07-03', 'Activo', 3);

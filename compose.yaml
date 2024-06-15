@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8081:8080"
+    volumes:
+      - test_vol:/test_vol
+  db:
+    image: mcr.microsoft.com/mssql/server
+    ports:
+      - "1434:1433"
+    volumes:
+      - test_vol:/var/opt/mssql
+    environment:
+      - MSSQL_SA_PASSWORD=Justin123%
+      - ACCEPT_EULA=Y
+
+volumes:
+  test_vol:
+
